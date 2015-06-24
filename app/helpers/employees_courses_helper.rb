@@ -1,0 +1,2 @@
+module EmployeesCoursesHelper
+end
