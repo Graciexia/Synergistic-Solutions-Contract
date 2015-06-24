@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150624214205) do
   create_table "courses", force: :cascade do |t|
     t.string   "course_name"
     t.string   "course_summary"
-    t.date     "starting_date"
+    t.integer  "enrollment_cap"
     t.integer  "location_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150624214205) do
   create_table "employees", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
-    t.date     "hired_date"
+    t.date     "hire_date"
     t.integer  "company_id"
     t.integer  "location_id"
     t.datetime "created_at",  null: false
