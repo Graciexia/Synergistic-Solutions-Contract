@@ -2,18 +2,29 @@
 
 <p>
   <strong>Course name:</strong>
-  <%= @course.course_name %>
+  <br><%= @course.course_name %>
 </p>
 
 <p>
   <strong>Course summary:</strong>
-  <%= @course.course_summary %>
+  <br><%= @course.course_summary %>
 </p>
-
 <p>
-  <strong>Starting date:</strong>
-  <%= @course.starting_date %>
+  <strong>Course Enrollment:</strong>
+  <br><%= @course.enrollment_cap %>
 </p>
+<p>
 
+  <strong>City:</strong>
+  <%= @course.location.city %>
+  <br><strong>Company name:</strong>
+    <%= @course.location.company.company_name %>
+  <br><strong>Employee(s):</strong>
+  <% @course.employees.each do |employee| %>
+      <br>&nbsp;&nbsp;<%= employee.name %>,
+      <%= employee.title %>, hired:
+      <%= employee.hire_date %>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

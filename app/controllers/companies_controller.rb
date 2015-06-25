@@ -4,12 +4,19 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = get_records_page(Company)
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.find(params[:id])
+    # @company.employees = Employee.where(company_id: @company.id)
+    # @company.locations = Location.where(company_id: @company.id)
+    # @company.locations.each do |location|
+    #   location.courses = Course.where(location_id: location.id)
+    end
+
   end
 
   # GET /companies/new
@@ -72,3 +79,4 @@ class CompaniesController < ApplicationController
       params.require(:company).permit(:company_name)
     end
 end
+

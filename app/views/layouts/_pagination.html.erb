@@ -1,0 +1,7 @@
+<% if @prev_page_num %>
+  <%= link_to "<<<prev", url_for() + '?page=' + @prev_page_num.to_s %>
+<% end %>
+Page <%= @current_page %> of <%= @last_page %>
+<% if @next_page_num %>
+  <%= link_to "next>>>", url_for() + '?page=' + @next_page_num.to_s %>
+<% end %>

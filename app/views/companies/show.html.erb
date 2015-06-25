@@ -3,7 +3,26 @@
 <p>
   <strong>Company name:</strong>
   <%= @company.company_name %>
+  <br><strong>Employee(s):</strong>
+    <% @company.employees.each do |employee| %>
+      <br>&nbsp;&nbsp;<%= employee.name %>,
+      <%= employee.title %>, hired:
+      <%= employee.hire_date %>
+    <% end %>
+  <br><strong>Location:</strong>
+    <% @company.locations.each do |location| %>
+      <%= location.city %>
+      <br>&nbsp;&nbsp;<strong>Course(s):</strong>
+      <% location.courses.each do |course| %>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;Name: <%= course.course_name %>,
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Summary: <%= course.course_summary %>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enrollment Cap: <%= course.enrollment_cap %> student(s)
+      <% end %>
+    <% end %>
+
+
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+

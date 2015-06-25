@@ -4,12 +4,22 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = get_records_page(Course)
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:id])
+    # @location = Location.where(location_id: @course.location_id)
+    # @company = Company.where(location_id: @location.id)
+    # @location.employees = Employee.where(location_id: @location.id)
+    # @location.courses = Course.where(location_id: @location.id)
+
+    # @company.employees = Employee.where(company_id: @company.id)
+    # @company.locations = Location.where(company_id: @company.id)
+    # @company.locations.each do |location|
+    #   location.courses = Course.where(location_id: location.id)
   end
 
   # GET /courses/new

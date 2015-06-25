@@ -4,14 +4,14 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = get_records_page(Location)
   end
 
   # GET /locations/1
   # GET /locations/1.json
   def show
+      @location = Location.find(params[:id])
   end
-
   # GET /locations/new
   def new
     @location = Location.new

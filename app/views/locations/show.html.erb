@@ -3,6 +3,26 @@
 <p>
   <strong>City:</strong>
   <%= @location.city %>
+  <br><strong>Company name:</strong>
+  <% if @location.company %>
+    <%= @location.company.company_name %>
+  <% else %>
+    no associated company
+  <% end %>
+  <br><strong>Employee(s):</strong>
+  <% @location.employees.each do |employee| %>
+      <br>&nbsp;&nbsp;<%= employee.name %>,
+      <%= employee.title %>, hired:
+      <%= employee.hire_date %>
+  <% end %>
+  <br><strong>Course(s):</strong>
+  <% @location.courses.each do |course| %>
+    <br>&nbsp;&nbsp;Name: <%= course.course_name %>,
+    <br>&nbsp;&nbsp;Summary: <%= course.course_summary %>
+    <br>&nbsp;&nbsp;Enrollment Cap: <%= course.enrollment_cap %> student(s)
+  <% end %>
+
+
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
